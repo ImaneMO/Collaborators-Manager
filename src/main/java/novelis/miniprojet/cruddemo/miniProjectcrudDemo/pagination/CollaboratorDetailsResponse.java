@@ -1,90 +1,98 @@
 package novelis.miniprojet.cruddemo.miniProjectcrudDemo.pagination;
 
-import java.sql.Date;
-
+import java.util.Date;
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.entity.Collaborator;
 
 public class CollaboratorDetailsResponse extends SuccessResponse{
 	
-//	private int id;
-//	private String firstName;
-//	private String lastName;
-//	private String email;
-//	private Date dateOfBirth;
-//	private String civility;
-//	
-//	public CollaboratorDetailsResponse(int id, String firstName, String lastName, String email,
-//			Date dateOfBirth, String civility) {
-//		this.id = id;
-//		this.firstName = firstName;
-//		this.lastName = lastName;
-//		this.email = email;
-//		this.dateOfBirth = dateOfBirth;
-//		this.civility = civility;
-//	}
-//
-//	public CollaboratorDetailsResponse(Collaborator collaborator, String message) {
-//        this(collaborator.getId(), collaborator.getFirstName(), collaborator.getLastName(), collaborator.getEmail(), collaborator.getDateOfBirth(), collaborator.getCivility());
-//        addFullMessage(message);
-//    }
-//
-//    public CollaboratorDetailsResponse(Collaborator collaborator) {
-//        this(collaborator, null);
-//    }
-//	
-//	
-//	
-//	public int getId() {
-//		return id;
-//	}
-//
-//	public void setId(int id) {
-//		this.id = id;
-//	}
-//
-//	public String getFirstName() {
-//		return firstName;
-//	}
-//
-//	public void setFirstName(String firstName) {
-//		this.firstName = firstName;
-//	}
-//
-//	public String getLastName() {
-//		return lastName;
-//	}
-//
-//	public void setLastName(String lastName) {
-//		this.lastName = lastName;
-//	}
-//
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-//
-//	public Date getDateOfBirth() {
-//		return dateOfBirth;
-//	}
-//
-//	public void setDateOfBirth(Date dateOfBirth) {
-//		this.dateOfBirth = dateOfBirth;
-//	}
-//
-//	public String getCivility() {
-//		return civility;
-//	}
-//
-//	public void setCivility(String civility) {
-//		this.civility = civility;
-//	}
+	private int id;
+	private String first_name;
+	private String last_name;
+	private String civility;
+	private Date birth_date;
+	private String email;
+	private String phone_number;
 	
-	public String good() {
-		return"all is well";
+	public CollaboratorDetailsResponse(int id, String first_name, String lastName, String civility, Date date, String email, String phone_number) {
+		this.id = id;
+		this.first_name = first_name;
+		this.last_name = lastName;
+		this.civility = civility;
+		this.birth_date = date;
+		this.email = email;
+		this.phone_number = phone_number;
+		
 	}
+
+	public CollaboratorDetailsResponse(Collaborator collaborator, String message) {
+        this(collaborator.getId(), collaborator.getFirstName(), collaborator.getLastName(), collaborator.getCivility(), collaborator.getBirthDate(), collaborator.getEmail(), collaborator.getPhoneNumber());
+        addFullMessage(message);
+    }
+
+	public String getPhone_number() {
+		return phone_number;
+	}
+
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
+	}
+
+	
+    public CollaboratorDetailsResponse(Collaborator collaborator) {
+        this(collaborator, null);
+    }
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getFirstName() {
+		return first_name;
+	}
+
+	public void setFirstName(String first_name) {
+		this.first_name = first_name;
+	}
+
+	public String getLastName() {
+		return last_name;
+	}
+
+	public void setLastName(String lastName) {
+		this.last_name = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getDateOfBirth() {
+		return birth_date;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.birth_date = dateOfBirth;
+	}
+
+	public String getCivility() {
+		return civility;
+	}
+
+	public void setCivility(String civility) {
+		this.civility = civility;
+	}
+	
+	
 	
 
 }

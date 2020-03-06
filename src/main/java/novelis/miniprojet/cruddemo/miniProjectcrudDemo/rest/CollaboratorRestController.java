@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,6 +32,7 @@ import novelis.miniprojet.cruddemo.miniProjectcrudDemo.dao.CollaboratorRepositor
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.dto.CollaboratorDto;
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.entity.Collaborator;
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.pagination.AppResponse;
+import novelis.miniprojet.cruddemo.miniProjectcrudDemo.pagination.CollaboratorDetailsResponse;
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.pagination.CollaboratorListResponse;
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.pagination.PageMeta;
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.service.CollaboratorService;
@@ -83,28 +86,23 @@ public class CollaboratorRestController {
 	
 	@ApiOperation(value = "to add a new collaborator")
 	@PostMapping("/Collaborators")
-	public ResponseEntity<Void> addCollaborator(@Valid @RequestBody CollaboratorDto theCollaboratorDto) {
-//		// also just in case they pass an id in JSON ... set id to 0
-//		// this is to force a save of new item ... instead of update
-//
-//		theCollaborator.setId(0);
-
-		collaboratorService.save(theCollaboratorDto);
-
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
-
+	public ModelAndView addCollaborator(@Valid Collaborator collaborator) {
+		collaborator.setId(0);
+		collaboratorRepository.save(collaborator);
+		ModelAndView modelAndView = new ModelAndView("collaboratorsList");
+		return modelAndView;
 	}
 
 	/* Step 4 : Update Collaborator */
 
-	@ApiOperation(value = "to update a collaborator")
-	@PutMapping("/Collaborators")
-	public CollaboratorDto updateCollaborator(@RequestBody CollaboratorDto theCollaboratorDto, BindingResult result) {
-		if(result.hasErrors()) {
-			throw new RuntimeException(" error");
-		}
-		return collaboratorService.updateCollaborator(theCollaboratorDto);
-
+	@ApiOperation(value = "Update a collaborator's informations on the condition that he exists!")
+	@PostMapping("/Collaborators/{id}")
+	public ModelAndView updateCollaborator(@PathVariable("id") int id, @Valid Collaborator collaborator, Model model) {
+		
+		ModelAndView modelAndView = new ModelAndView("informations");
+		collaboratorRepository.save(collaborator);
+		model.addAttribute("collaborators", collaboratorRepository.findAll());
+			return modelAndView;
 	}
 	
 	/*Step 5 : Delete an Collaborator*/

@@ -10,7 +10,7 @@ $("div").on("keyup", ".search-input", function(event) {
 	   document.querySelector(".btn-search").click();
 	  }
 	
-})
+});
 
 
 $("div").on("click", ".btn-search", function(event) {
@@ -31,6 +31,6 @@ $("div").on("click", ".btn-search", function(event) {
 	
 		     window.location.href = url+'Collab/'+input;
 		     console.log("final"+input);
-})
+});
 
 

@@ -19,17 +19,17 @@
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			
+			<input type="hidden" th:value="${id}" id="id">
 			<div class="manage-collabs collapse navbar-collapse" id="navbarTogglerDemo02">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					<li class="nav-item active">
-                        <a class="nav-link" href="./home.html">Home</a>
+                        <a class="nav-link" href="http://localhost:8080/Collabs">Home</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="./collaboratorsList.html">Collaborators' List</a>
+                        <a class="nav-link" href="#">Collaborators' List</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="./form.html">Add Collaborator</a>
+                        <a class="nav-link" href="http://localhost:8080/Collab/add">Add Collaborator</a>
                     </li>
 				</ul>
 				<div class="form-inline my-2 my-lg-0">
@@ -84,6 +84,6 @@
  		 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   			crossorigin="anonymous"></script>
 	<script type="text/javascript" th:src="@{/js/listJs.js}"></script>
-	<script type="text/javascript" th:src="@{/js/headerJs.js}"></script>
+	<script type="text/javascript" th:src="@{/js/searchJs.js}"></script>
 </body>
 </html>

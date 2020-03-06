@@ -13,6 +13,8 @@
 		  crossorigin="anonymous">
 	<link th:href="@{/css/infoStyle.css}" rel="stylesheet" type="text/css" />
 	<link th:href="@{/css/headerStyle.css}" rel="stylesheet" type="text/css">
+	<script type="text/javascript" th:src="@{/js/searchJs.js}"></script>
+	<script type="text/javascript" th:src="@{/js/update.js}"></script>
 </head>
 <body>
 
@@ -33,11 +35,11 @@
 				id="navbarTogglerDemo02">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					<li class="nav-item active"><a class="nav-link"
-						href="./home.html">Home</a></li>
+						href="http://localhost:8080/home">Home</a></li>
 					<li class="nav-item active"><a class="nav-link"
-						href="./collaboratorsList.html">Collaborators' List</a></li>
+						href="http://localhost:8080/Collabs/">Collaborators' List</a></li>
 					<li class="nav-item active"><a class="nav-link"
-						href="./form.html">Add Collaborator</a></li>
+						href="http://localhost:8080/Collabs/add">Add Collaborator</a></li>
 				</ul>
 				<div class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2 search-input " type="search"
@@ -76,9 +78,8 @@
 							</div>
 							<div class="p-2 bd-highlight update-btn">
 								
-									<button type="submit" class="btn btn-primary btn-update">
-										<span class="icon"><i class="fa fa-pencil"
-											aria-hidden="true"></i></span>
+									<button type="submit" class="btn btn-primary btn-update" id="update-button">
+										<span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
 									</button>
 								
 							</div>
@@ -93,6 +94,6 @@
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 		crossorigin="anonymous"></script>
 	<script type="text/javascript" th:src="@{/js/infosJs.js}"></script>
-	<script type="text/javascript" th:src="@{/js/headerJs.js}"></script>
+	<script type="text/javascript" th:src="@{/js/searchJs.js}"></script>
 </body>
 </html>

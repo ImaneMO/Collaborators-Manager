@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import novelis.miniprojet.cruddemo.miniProjectcrudDemo.pagination.ErrorResponse;
+
 @ControllerAdvice
 @RestController
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
@@ -31,7 +33,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 			details.add(violation.getMessage());
 		}
 
-		ErrorResponse error = new ErrorResponse("Validation Error", details);
+		ErrorResponse error = new ErrorResponse("Validation Error");
 
 		return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
