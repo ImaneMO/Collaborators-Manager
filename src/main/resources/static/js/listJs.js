@@ -194,13 +194,16 @@ $("ul").on("click", ".prev-page", function(event) {
 $("body").on("click", ".table-row", function(event) { // bind the parent and specify event and the
 
 	var collabID;
+	
+	//id
 	var textID =  $(this).text().substring(0,3);
     var matches = textID.match(/(\d+)/); 
-      
+    
+     
     if (matches) { 
     	collabID = matches[0]; 
     } 
 	
-	localStorage.setItem('id',collabID);										  // element that we want to apply the event on it
+	localStorage.setItem('id',collabID);		  // element that we want to apply the event on it
 	window.document.location = $(this).data("href");//"http://localhost:8080/Collab/"+collabID;//
 });

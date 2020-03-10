@@ -12,7 +12,8 @@
 	      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
 		  crossorigin="anonymous">
 	<link th:href="@{/css/infoStyle.css}" rel="stylesheet" type="text/css" />
-	<link th:href="@{/css/headerStyle.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{/css/footer.css}" rel="stylesheet" type="text/css">
 	<script type="text/javascript" th:src="@{/js/searchJs.js}"></script>
 	<script type="text/javascript" th:src="@{/js/update.js}"></script>
 </head>
@@ -20,7 +21,7 @@
 
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark">
-			<img height="55" alt="novelis" th:src="@{/images/novelis-logo.jpg}">
+			<img height="45" alt="novelis" th:src="@{/images/novelis-logo.jpg}">
 			<div>
 				<a class="navbar-brand" href="#">Collaborators Management</a>
 			</div>
@@ -39,7 +40,7 @@
 					<li class="nav-item active"><a class="nav-link"
 						href="http://localhost:8080/Collabs/">Collaborators' List</a></li>
 					<li class="nav-item active"><a class="nav-link"
-						href="http://localhost:8080/Collabs/add">Add Collaborator</a></li>
+						href="http://localhost:8080/Collab/add">Add Collaborator</a></li>
 				</ul>
 				<div class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2 search-input " type="search"
@@ -59,7 +60,7 @@
 				<br>
 				<div class="d-flex flex-column collab-infos">
 					<!-- <div class="p-2 bd-highlight">NOM</div>
-					<div class="p-2 bd-highlight">Prénom</div>
+					<div class="p-2 bd-highlight">PrÃ©nom</div>
 					<div class="p-2 bd-highlight">date/de/naissane</div>
 					<div class="p-2 bd-highlight">email@email.com</div>
 					<div class="p-2 bd-highlight">0600000000</div> -->
@@ -89,7 +90,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 		crossorigin="anonymous"></script>

@@ -1,3 +1,4 @@
+  
 package novelis.miniprojet.cruddemo.miniProjectcrudDemo.exceptionHandler;
 
 import org.springframework.http.HttpStatus;
@@ -9,8 +10,13 @@ public class NotFoundException extends RuntimeException {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private static final String MESSAGE = "Could not find the Collaborator";
 
 	public NotFoundException(String exception) {
         super(exception);
+    }
+	public NotFoundException() {
+        super(String.format(MESSAGE));
     }
 }

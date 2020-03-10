@@ -5,7 +5,7 @@ html{
 }
 
 body{
-	background-color: var(--myBackground);
+	background-color: white;
 }
 .container{
 	position: relative;

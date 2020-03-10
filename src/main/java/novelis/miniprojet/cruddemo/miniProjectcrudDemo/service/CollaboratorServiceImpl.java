@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.dao.CollaboratorRepository;
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.dto.CollaboratorDto;
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.entity.Collaborator;
+import novelis.miniprojet.cruddemo.miniProjectcrudDemo.exceptionHandler.NotFoundException;
 
 @Service
 public class CollaboratorServiceImpl implements CollaboratorService{
@@ -46,7 +47,7 @@ private CollaboratorRepository CollaboratorRepository;
 			return (new CollaboratorDto(result.get().getId(), result.get().getFirstName(), result.get().getLastName(), result.get().getCivility(), result.get().getBirthDate(), result.get().getEmail(), result.get().getPhoneNumber()));
 		}else {
 			// Collaborator not found 
-			throw new RuntimeException("Did not find Collaborator id - "+theId);
+			throw new NotFoundException();
 		}
 		
 	}

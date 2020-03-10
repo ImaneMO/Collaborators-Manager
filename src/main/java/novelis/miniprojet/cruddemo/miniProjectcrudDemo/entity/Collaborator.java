@@ -10,7 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.dto.CollaboratorDto;
@@ -38,12 +40,13 @@ public class Collaborator {
 	@Column(name = "email")
 	private String email;
 
+
 	@Column(name = "phone_number")
 	private String phoneNumber;
 
-	
+	@DateTimeFormat(iso=ISO.DATE)
 	@Column(name = "birth_date")
-	@JsonFormat(pattern="dd-MM-yyyy")
+
 	private Date birthDate;
 
 
@@ -102,18 +105,11 @@ public class Collaborator {
 		this.phoneNumber = phoneNumber;
 	}
 
+	
+
 	public Date getBirthDate() {
-//		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-//        String dateOfBirth = formatter.format(birthDate);
-//		try {
-//			birthDate = new SimpleDateFormat("dd/MM/yyyy").parse(dateOfBirth);
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}  
 		return birthDate;
 	}
-	
-	
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;

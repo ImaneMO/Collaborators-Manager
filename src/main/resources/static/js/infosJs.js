@@ -20,7 +20,8 @@ window.onload = () => {
     		property.setAttributeNode(attClass);
     		property.textContent=data[prop];
             collabInfos.appendChild(property);
-        }  
+        }
+          
     })
 
     .catch(err => console.log('Error:', err));
@@ -46,3 +47,6 @@ $(".delete-btn").on("click", ".btn-delete", function(event) {
     	  window.location.href = url+'Collabs';
       }
 })
+
+
+	

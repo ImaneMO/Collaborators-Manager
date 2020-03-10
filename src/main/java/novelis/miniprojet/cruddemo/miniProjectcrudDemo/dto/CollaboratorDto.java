@@ -6,11 +6,14 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import novelis.miniprojet.cruddemo.miniProjectcrudDemo.entity.Collaborator;
 
-@JsonPropertyOrder(value = {"id","firstName","lastName","civility","birthDate","email","phoneNumber"})
+@JsonPropertyOrder(value = {"id","firstName","lastName","civility","DateOfBirth","email","phoneNumber"})
 public class CollaboratorDto {
 
 	private int id;
@@ -27,14 +30,15 @@ public class CollaboratorDto {
 	@Email(message = "the email is not valid")
 	private String email;
 
-	@NotNull(message = "please enter your phone number")
-	@Pattern(regexp = "(^0[0-9]{9}$|^00[0-9]{11,13}$)", message = "this phone number is not valide")
+	@NotNull()
+	@Pattern(
+		    regexp = "(^0[0-9]{8}$|^00[0-9]{11,13}$)", 
+		    message = "Enter a valid phone number."
+		    )
 	private String phoneNumber;
 
+	@DateTimeFormat(iso=ISO.DATE)
 	@NotNull(message = "please enter your birth date")
-//	@Pattern(    
-//			regexp = "((?:19|20)[0-9]{2})-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])",
-//			message = "the date is not valide")
 	private Date birthDate;
 
 	@NotNull(message = "please enter your civility")
@@ -89,12 +93,14 @@ public class CollaboratorDto {
 		this.phoneNumber = phoneNumber;
 	}
 
+
+
 	public Date getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
+	public void setDateOfBirth(Date BirthDate) {
+		this.birthDate = BirthDate;
 	}
 
 	public String getCivility() {
